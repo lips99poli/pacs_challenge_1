@@ -14,9 +14,9 @@ using GF = std::function<Point (Point)>;
 
 struct Parameters {
     Point starting_point;
-    double epsilon_s = 1e-4;
-    double epsilon_r = 1e-4;
-    double max_it = 10000;
+    double epsilon_s = 1e-6;
+    double epsilon_r = 1e-6;
+    double max_it = 100000;
     Real alpha0 = 1;
     Real sigma = 0.49;
 

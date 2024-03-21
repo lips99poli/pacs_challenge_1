@@ -13,8 +13,7 @@ Point gf (const Point& x){
 }
 
 int main(){
-    Point prova(2,1.);
-    std::cout << prova[0] << prova[1] << prova.size() << std::endl;
+
     Parameters par;
     Minimizer gradient_descent(par);
     gradient_descent.find_minimum(f,gf);

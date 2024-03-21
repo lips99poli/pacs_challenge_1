@@ -39,6 +39,7 @@ void Minimizer::find_minimum(const F& f, const GF& gf){
     Point new_point(x_k.size());
 
     for(std::size_t k=0; continue_condition && update_alpha(f,gf); ++k){
+        new_point = x_k;
         Real step_length = update_new_point(f,gf, new_point);
         continue_condition = k<par.max_it && step_length>par.epsilon_s && std::abs(f(new_point)-f(x_k));
     }
