@@ -36,14 +36,16 @@ Real Minimizer::update_new_point(const F& f, const GF& gf, Point& new_point) con
 
 void Minimizer::find_minimum(const F& f, const GF& gf){
     bool continue_condition = true;
-    Point new_point(x_k.size());
+    Point new_point(x_k);
+    std::size_t k=0;
 
-    for(std::size_t k=0; continue_condition && update_alpha(f,gf); ++k){
+    for(; continue_condition && update_alpha(f,gf); ++k){
         new_point = x_k;
         Real step_length = update_new_point(f,gf, new_point);
-        continue_condition = k<par.max_it && step_length>par.epsilon_s && std::abs(f(new_point)-f(x_k));
+        continue_condition = k<par.max_it && step_length>par.epsilon_s && std::abs(f(new_point)-f(x_k))>par.epsilon_r;
+        x_k = new_point;
     }
-    x_k = new_point;
+    std::cout<<"number of it: "<<k<<std::endl;
 }
 
 Point Minimizer::get_minimum() const{
