@@ -25,3 +25,9 @@ to compile and get as output $test$ file and execute it:
 ./main
 ```
 to get the optimizer work a compute the minimal point, given the parameters in the "parameters" file.
+
+If you want to change the value of parameters you can modify the existing one or create your own file with the same sintx and add it to the command line after the option -f (--file):
+```bash
+./main -f NewParameters
+```
+
