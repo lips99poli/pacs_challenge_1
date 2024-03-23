@@ -1,0 +1,5 @@
+epsilon_s = 1e-7;
+epsilon_r = 1e-7;
+max_it = 100000;
+alpha0 = 1;
+sigma = 0.25;
