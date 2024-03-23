@@ -18,6 +18,7 @@ git clone git@github.com:lips99poli/pacs_challenge_1.git
 Now implemented only a very simpple optimization problem that optimize $f(x) = x_1 x_2 + 4 x_1^4 + x_2^2 + 3 x_1$.
 After cloning the repository, Just type:
 ```bash
+cd run
 make
 ```
 to compile and get as output $test$ file and execute it:
