@@ -3,7 +3,8 @@ OBJECTS = GD_Abstract.o GD_ApproximateLineSearch.o GD_InverseDecay.o GD_Exponent
 EXEC = main
 
 CXXFLAGS = -std=c++20 -c
-CPPFLAGS =  -I ../pacs-examples/Examples/src/Utilities -I ./Library_GD -I .
+CPPFLAGS = -I ./include -I ./include/Library_GD
+DIR_SOLVER = ./include/Library_GD/
 
 
 .PHONY = all clean distclean
@@ -12,16 +13,16 @@ main: $(OBJECTS)
 	@$(CXX) $(OBJECTS) -o main
 
 GD_Abstract.o:
-	@$(CXX) $(CXXFLAGS) ./Library_GD/GD_Abstract.cpp $(CPPFLAGS)
+	@$(CXX) $(CXXFLAGS) $(DIR_SOLVER)GD_Abstract.cpp $(CPPFLAGS)
 
 GD_ApproximateLineSearch.o:
-	@$(CXX) $(CXXFLAGS) ./Library_GD/GD_ApproximateLineSearch.cpp $(CPPFLAGS)
+	@$(CXX) $(CXXFLAGS) $(DIR_SOLVER)GD_ApproximateLineSearch.cpp $(CPPFLAGS)
 
 GD_InverseDecay.o:
-	@$(CXX) $(CXXFLAGS) ./Library_GD/GD_InverseDecay.cpp $(CPPFLAGS)
+	@$(CXX) $(CXXFLAGS) $(DIR_SOLVER)GD_InverseDecay.cpp $(CPPFLAGS)
 
 GD_ExponentialDecay.o:
-	@$(CXX) $(CXXFLAGS) ./Library_GD/GD_ExponentialDecay.cpp $(CPPFLAGS)
+	@$(CXX) $(CXXFLAGS) $(DIR_SOLVER)GD_ExponentialDecay.cpp $(CPPFLAGS)
 
 main.o:
 	@$(CXX) $(CXXFLAGS) main.cpp $(CPPFLAGS)

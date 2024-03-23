@@ -1,9 +1,9 @@
 
-#include "./Library_GD/GD_ApproximateLineSearch.hpp"
-#include "./Library_GD/GD_InverseDecay.hpp"
-#include "./Library_GD/GD_ExponentialDecay.hpp"
+#include "./include/Library_GD/GD_ApproximateLineSearch.hpp"
+#include "./include/Library_GD/GD_InverseDecay.hpp"
+#include "./include/Library_GD/GD_ExponentialDecay.hpp"
 #include <iostream>
-#include <cmath> 
+//#include <cmath> 
 
 Real f (const Point& x){
     return x[0]*x[1] + 4*x[0]*x[0]*x[0]*x[0] + x[1]*x[1] + 3*x[0];
