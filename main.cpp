@@ -1,4 +1,7 @@
-#include "Minimizer.hpp"
+
+#include "./Library_GD/GD_ApproximateLineSearch.hpp"
+#include "./Library_GD/GD_InverseDecay.hpp"
+#include "./Library_GD/GD_ExponentialDecay.hpp"
 #include <iostream>
 #include <cmath> 
 
@@ -12,12 +15,26 @@ Point gf (const Point& x){
     return gf_x;
 }
 
-int main(){
+int main(int argc, char** argv){
 
-    Parameters par;
-    Minimizer gradient_descent(par);
-    gradient_descent.find_minimum(f,gf);
+    Parameters par(argc,argv,{0,0});
 
-    Point minimum = gradient_descent.get_minimum();
-    gradient_descent.print_info();
+    std::cout << "Gradient descent with Approximate Line Search: " << std::endl;
+    GD_ApproximateLineSearch ALS_Ajirno(par,f,gf);
+    ALS_Ajirno.find_minimum();
+    ALS_Ajirno.print_results();
+
+    // Ho osservato che con alpha0=1 gli algoritmi di InverseDecay e ExponentialDecay la soluzione diverge, quindi lo abbasso a 0.2
+    par.alpha0 = 0.2;
+    std::cout << "\nNew alpha0: " << par.alpha0 << std::endl;
+    
+    std::cout << "\nGradient descent with Inverse Decay: " << std::endl;
+    GD_InverseDecay ID(par,f,gf,0.2);
+    ID.find_minimum();
+    ID.print_results();
+
+    std::cout << "\nGradient descent with Exponential Decay: " << std::endl;
+    GD_ExponentialDecay ED(par,f,gf,0.2);
+    ED.find_minimum();
+    ED.print_results();
 }
