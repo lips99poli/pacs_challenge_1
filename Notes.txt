@@ -1,0 +1,9 @@
+Correct use of GitHub.
+README is clear and complete.
+
+The code is well organized but there are no comments.
+The README in the include foalder explains the organization of the files there.
+
+You could have also let the user choose the method runtime.
+
+Good job!
